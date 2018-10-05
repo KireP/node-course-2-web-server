@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
   res.render('home.hbs', {
     pageTitle: 'Home Page',
     welcomeMessage: 'Welcome to my website'
-  })
+  });
 });
 
 app.get('/about', (req, res) => {
@@ -41,12 +41,16 @@ app.get('/about', (req, res) => {
   });
 });
 
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects'
+  });
+});
+
 app.get('/bad', (req, res) => {
   res.send({
     errorMessage: 'Unable to handle request'
-  })
+  });
 });
 
-app.listen(port, () => {
-  console.log(`Server is up on port ${port}`);
-});
+app.listen(port, () => console.log(`Server is up on port ${port}`));
